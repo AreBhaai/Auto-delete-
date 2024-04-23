@@ -43,12 +43,6 @@ async def delete(user, message):
 async def start(user, message):
     await message.reply("Hi, I'm alive!")
 
-#==========================================================
-
-Popen(f"gunicorn utils.server:app --bind 0.0.0.0:{PORT}", shell=True)
-Popen("python3 -m utils.delete", shell=True)
-User.run()
-
 @Client.on_message(filters.command("restart"))
 async def restart(b, m):
     if os.path.exists(".git"):
@@ -61,3 +55,9 @@ async def restart(b, m):
     except:
         pass
     os.execl(sys.executable, sys.executable, "bot.py")
+
+#==========================================================
+
+Popen(f"gunicorn utils.server:app --bind 0.0.0.0:{PORT}", shell=True)
+Popen("python3 -m utils.delete", shell=True)
+User.run()
