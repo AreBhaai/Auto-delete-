@@ -41,20 +41,7 @@ async def delete(user, message):
 
 @User.on_message(filters.regex("!start") & filters.private)
 async def start(user, message):
-    await message.reply("Hi, I'm alive!")
-
-@Client.on_message(filters.command("restart"))
-async def restart(b, m):
-    if os.path.exists(".git"):
-        os.system("git pull")
-
-    oo = await m.reply_text("Restarting...")
-    await oo.delete()
-    try:
-        os.remove("TelegramBot.txt")
-    except:
-        pass
-    os.execl(sys.executable, sys.executable, "bot.py")
+    await message.reply("നീ ആൺകുട്ടി ആണ്")
 
 #==========================================================
 
