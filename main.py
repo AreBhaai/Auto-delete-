@@ -28,7 +28,7 @@ User = Client("auto-delete-user",
               session_string=SESSION)
 
 
-bot = Client("auto-delete-bot",
+Bot = Client("auto-delete-bot",
           api_id=API_ID,
           api_hash=API_HASH,
           bot_token=BOT_TOKEN)
