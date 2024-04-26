@@ -27,6 +27,12 @@ START_MSG = "<b>സിനിമയാണെങ്കിൽ ഇവിടെ ച�
 User = Client("auto-delete-user",
               session_string=SESSION)
 
+
+bot = Client("auto-delete-bot",
+          api_id=API_ID,
+          api_hash=API_HASH,
+          bot_token=BOT_TOKEN)
+
 @User.on_message(filters.chat(CHATS))
 async def delete(user, message):
     try:
