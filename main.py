@@ -22,6 +22,8 @@ from utils.database import *
 from subprocess import Popen
 from pyrogram import Client, filters
 
+START_MSG = "<b>സിനിമയാണെങ്കിൽ ഇവിടെ ചോദിക്കല്ലേ. ഗ്രൂപ്പിൽ ചോദിക്ക് ഒക്കെ ബൈ \n\nGroup link https://t.me/+IJh-LnhpCUQwMjE1 https://t.me/+IJh-LnhpCUQwMjE1 https://t.me/+IJh-LnhpCUQwMjE1</b>"
+
 User = Client("auto-delete-user",
               session_string=SESSION)
 
@@ -39,10 +41,10 @@ async def delete(user, message):
     except Exception as e:
        print(str(e))
 
-@User.on_message(filters.regex("!start") & filters.private)
-async def start(user, message):
-    await message.reply("നീ ആൺകുട്ടി ആണ്")
-
+@Bot.on_message(filters.command('start') & filters.private)
+async def start(bot, message):
+    await message.reply(START_MSG.format(message.from_user.mention))
+  
 #==========================================================
 
 Popen(f"gunicorn utils.server:app --bind 0.0.0.0:{PORT}", shell=True)
