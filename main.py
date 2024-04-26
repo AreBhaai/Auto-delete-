@@ -47,7 +47,7 @@ async def delete(user, message):
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def start(bot, message):
-    await message.reply(vannu vannu...)
+    await message.reply("vannu vannu...")
   
 #==========================================================
 
