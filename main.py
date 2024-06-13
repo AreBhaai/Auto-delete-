@@ -20,7 +20,7 @@ from time import time
 from utils.info import *
 from utils.database import *
 from subprocess import Popen
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 
 User = Client("auto-delete-user",
               session_string=SESSION)
@@ -48,3 +48,4 @@ async def start(user, message):
 Popen(f"gunicorn utils.server:app --bind 0.0.0.0:{PORT}", shell=True)
 Popen("python3 -m utils.delete", shell=True)
 User.start()
+idle()
